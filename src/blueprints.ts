@@ -11,6 +11,22 @@ interface Blueprint {
     theme?: string;
     controls: BlueprintControl[];
 }
+// Note:  Using the Record utility type of TypeScript allows defaultData to be flexible.
+//        This way, each blueprint can have its own unique set of data fields without being
+//        constrained by a rigid interface.
+//
+//        Record<K, T> is a Generic type that constructs an object type whose property keys
+//        are of type K and property values are of type T.
+//
+//        In this case, Record<string, any> means that defaultData can have any number of properties
+//        with string keys and values of any type. This flexibility is crucial for a blueprint system
+//        where different blueprints may require different data structures.
+//
+//        It's saying that defaultData can be an object with any string keys and values of any type,
+//        which allows for maximum flexibility in defining the data needed for each blueprint.
+//
+//        Reminder: An object looks like this: { key1: value1, key2: value2, ... } where keys are strings
+//        and values can be of any type (string, number, boolean, etc.).
 
 export const BLUEPRINTS: Record<string, Blueprint> = {
     TEST1: {
@@ -46,7 +62,10 @@ export const BLUEPRINTS: Record<string, Blueprint> = {
     IMAGE_TEXT: {
         name: "Image + Caption",
         template: `<div><img src="{{url}}" /><p>{{caption}}</p></div>`,
-        defaultData: { url: "https://placehold.co/600x400", caption: "Edit this text" },
+        defaultData: {
+            url: "https://placehold.co/600x400",
+            caption: "Edit this text",
+        },
         controls: [
             { label: "Image URL", key: "url", type: "text" },
             { label: "Caption", key: "caption", type: "textarea" },

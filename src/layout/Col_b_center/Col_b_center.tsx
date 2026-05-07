@@ -11,7 +11,7 @@ const Col_b_center = () => {
         <div className={styles.colCenter}>
             <div className="canvas">
                 {instances.map((instance) => {
-                    const blueprint = BLUEPRINTS[instance.blueprintId as keyof typeof BLUEPRINTS];
+                    const blueprint = Object.entries(BLUEPRINTS).find(([id]) => id === instance.blueprintId)?.[1];
                     if (!blueprint) return null;
                     const hydratedHtml = hydrateTemplate(blueprint.template, instance.data);
                     return <BlueprintPreview key={instance.id} html={hydratedHtml} />;

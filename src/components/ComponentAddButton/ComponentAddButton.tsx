@@ -1,7 +1,7 @@
 import styles from "./ComponentAddButton.module.css";
-import BlueprintPreview from "@/components/BlueprintPreview/BlueprintPreview";
-import { BLUEPRINTS } from "@/blueprints";
-import { hydrateTemplate } from "@/utils/template";
+import BlueprintPreview from "../BlueprintPreview/BlueprintPreview";
+import { BLUEPRINTS } from "../../blueprints";
+import { hydrateTemplate } from "../../utils/template";
 
 type ComponentAddButtonProps = {
     blueprintId: string;
