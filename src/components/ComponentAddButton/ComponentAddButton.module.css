@@ -1,0 +1,28 @@
+.card {
+    position: relative;
+    /* Essential: contains the stretched button */
+    border: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-2px);
+}
+
+.mainAction::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    /* Makes the button area cover the card */
+}
+
+/* Optional: Visual focus for keyboard users */
+.card:focus-within {
+    outline: 2px solid blue;
+}
