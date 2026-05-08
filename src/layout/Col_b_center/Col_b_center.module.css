@@ -1,4 +1,18 @@
 .colCenter {
-    flex: 2;
-    background-color: aqua;
+  flex: 2;
+  background-color: rgb(223, 246, 246);
+}
+.canvas {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  /* The below two rules handle the thin blueprint hover effect */
+  & div[data-shadowbox] {
+    transition: padding 0.3s ease;
+  }
+
+  &:hover > div[data-thin] div[data-shadowbox] {
+    padding: 10px 0;
+  }
 }
