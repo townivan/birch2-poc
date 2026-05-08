@@ -15,7 +15,7 @@ const ComponentAddButton = ({ blueprintId, onAddInstance }: ComponentAddButtonPr
     return (
         <article className={styles.card}>
             <div className="card-content">
-                <BlueprintPreview html={hydrateTemplate(blueprint.template, blueprint.defaultData)} />
+                <BlueprintPreview html={hydrateTemplate(blueprint.template, blueprint.defaultData)} isSelectable={false} />
 
                 <button type="button" className={styles.mainAction} onClick={() => onAddInstance(blueprintId)}>
                     Add {blueprint.name}

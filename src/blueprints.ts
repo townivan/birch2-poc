@@ -31,7 +31,7 @@ interface Blueprint {
 export const BLUEPRINTS: Record<string, Blueprint> = {
     TEST1: {
         name: "Test1 Blueprint",
-        template: `<div style="background: {{bg}};"><h1>{{title}}</h1></div>`,
+        template: `<div style="background: {{bg}};"><h1 style="margin:0;">{{title}}</h1></div>`,
         defaultData: { title: "Test1", bg: "lightgreen" },
         theme: "unum",
         controls: [
@@ -48,6 +48,13 @@ export const BLUEPRINTS: Record<string, Blueprint> = {
             { label: "Heading Text", key: "title", type: "text" },
             { label: "Background Color", key: "bg", type: "color" },
         ],
+    },
+    THIN: {
+        name: "Thin Blueprint",
+        template: `<div style="background: {{bg}}; height: 5px"></h1></div>`,
+        defaultData: { title: "Test2", bg: "darkblue" },
+        theme: "unum",
+        controls: [{ label: "Background Color", key: "bg", type: "color" }],
     },
     HEADER: {
         name: "Simple Header",
