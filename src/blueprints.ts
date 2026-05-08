@@ -1,15 +1,16 @@
 interface BlueprintControl {
-    label: string;
-    key: string;
-    type: "text" | "color" | "textarea";
+  label: string;
+  key: string;
+  type: "text" | "color" | "textarea";
 }
 
 interface Blueprint {
-    name: string;
-    template: string;
-    defaultData: Record<string, any>;
-    theme?: string;
-    controls: BlueprintControl[];
+  name: string;
+  template: string;
+  defaultData: Record<string, any>;
+  theme?: string;
+  isThin?: boolean;
+  controls: BlueprintControl[];
 }
 // Note:  Using the Record utility type of TypeScript allows defaultData to be flexible.
 //        This way, each blueprint can have its own unique set of data fields without being
@@ -29,53 +30,54 @@ interface Blueprint {
 //        and values can be of any type (string, number, boolean, etc.).
 
 export const BLUEPRINTS: Record<string, Blueprint> = {
-    TEST1: {
-        name: "Test1 Blueprint",
-        template: `<div style="background: {{bg}};"><h1 style="margin:0;">{{title}}</h1></div>`,
-        defaultData: { title: "Test1", bg: "lightgreen" },
-        theme: "unum",
-        controls: [
-            { label: "Heading Text", key: "title", type: "text" },
-            { label: "Background Color", key: "bg", type: "color" },
-        ],
+  TEST1: {
+    name: "Test1 Blueprint",
+    template: `<div style="background: {{bg}};"><h1 style="margin:0;">{{title}}</h1></div>`,
+    defaultData: { title: "Test1", bg: "lightgreen" },
+    theme: "unum",
+    controls: [
+      { label: "Heading Text", key: "title", type: "text" },
+      { label: "Background Color", key: "bg", type: "color" },
+    ],
+  },
+  TEST2: {
+    name: "Test2 Blueprint",
+    template: `<div style="background: {{bg}};"><h1>{{title}}</h1></div>`,
+    defaultData: { title: "Test2", bg: "tan" },
+    theme: "unum",
+    controls: [
+      { label: "Heading Text", key: "title", type: "text" },
+      { label: "Background Color", key: "bg", type: "color" },
+    ],
+  },
+  THIN: {
+    name: "Thin Blueprint",
+    template: `<div style="background: {{bg}}; height: 1px"></h1></div>`,
+    defaultData: { title: "Test2", bg: "darkblue" },
+    theme: "unum",
+    isThin: true,
+    controls: [{ label: "Background Color", key: "bg", type: "color" }],
+  },
+  HEADER: {
+    name: "Simple Header",
+    template: `<div style="background: {{bg}};"><h1>{{title}}</h1></div>`,
+    defaultData: { title: "New Email", bg: "#ffffff" },
+    theme: "unum",
+    controls: [
+      { label: "Heading Text", key: "title", type: "text" },
+      { label: "Background Color", key: "bg", type: "color" },
+    ],
+  },
+  IMAGE_TEXT: {
+    name: "Image + Caption",
+    template: `<div><img src="{{url}}" /><p>{{caption}}</p></div>`,
+    defaultData: {
+      url: "https://placehold.co/600x400",
+      caption: "Edit this text",
     },
-    TEST2: {
-        name: "Test2 Blueprint",
-        template: `<div style="background: {{bg}};"><h1>{{title}}</h1></div>`,
-        defaultData: { title: "Test2", bg: "tan" },
-        theme: "unum",
-        controls: [
-            { label: "Heading Text", key: "title", type: "text" },
-            { label: "Background Color", key: "bg", type: "color" },
-        ],
-    },
-    THIN: {
-        name: "Thin Blueprint",
-        template: `<div style="background: {{bg}}; height: 5px"></h1></div>`,
-        defaultData: { title: "Test2", bg: "darkblue" },
-        theme: "unum",
-        controls: [{ label: "Background Color", key: "bg", type: "color" }],
-    },
-    HEADER: {
-        name: "Simple Header",
-        template: `<div style="background: {{bg}};"><h1>{{title}}</h1></div>`,
-        defaultData: { title: "New Email", bg: "#ffffff" },
-        theme: "unum",
-        controls: [
-            { label: "Heading Text", key: "title", type: "text" },
-            { label: "Background Color", key: "bg", type: "color" },
-        ],
-    },
-    IMAGE_TEXT: {
-        name: "Image + Caption",
-        template: `<div><img src="{{url}}" /><p>{{caption}}</p></div>`,
-        defaultData: {
-            url: "https://placehold.co/600x400",
-            caption: "Edit this text",
-        },
-        controls: [
-            { label: "Image URL", key: "url", type: "text" },
-            { label: "Caption", key: "caption", type: "textarea" },
-        ],
-    },
+    controls: [
+      { label: "Image URL", key: "url", type: "text" },
+      { label: "Caption", key: "caption", type: "textarea" },
+    ],
+  },
 };
