@@ -1,34 +1,42 @@
 .blueprintPreview {
-    display: flex;
-    position: relative;
-    border: 2px solid transparent;
-    transition: border-color 0.2s;
+  display: flex;
+  position: relative;
+  /* border: 2px solid transparent; */
+  transition: border-color 0.2s;
+  &:hover {
+    outline: 2px purple solid;
+    outline-offset: -2px;
+  }
 }
 
 /* Show a focus ring on the card when the hidden button is focused via keyboard */
 .blueprintPreview:focus-within {
-    outline: 2px solid #2463eb;
+  outline: 2px solid #2463eb;
+  outline-offset: -2px;
 }
 
 .col1 {
-    flex: 1;
+  flex: 1;
 }
 
 .col2 {
-    width: 30px;
-    display: flex;
-    flex-direction: column;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .fullButton {
-    position: absolute;
-    inset: 0;
-    /* Shorthand for top/right/bottom/left: 0 */
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 2;
-    padding: 0;
-    border: none;
+  position: absolute;
+  inset: 0;
+  /* Shorthand for top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+  border: none;
 }
+/* div[data-thin="true"] {
+  margin: 10px 0;
+} */
