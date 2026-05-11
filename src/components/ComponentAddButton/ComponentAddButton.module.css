@@ -4,6 +4,7 @@
   border: 1px solid #ddd;
   padding: 20px;
   transition: transform 0.2s;
+
   &:hover {
     outline: 2px green solid;
     outline-offset: -2px;

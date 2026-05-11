@@ -1,0 +1,16 @@
+.editPanel {
+    height: 100svh;
+    background-color: orange;
+    width: 400px;
+    position: absolute;
+    left: -19px;
+    z-index: 10;
+}
+
+.header {
+    display: flex;
+}
+
+.col1 {
+    flex: 1;
+}
