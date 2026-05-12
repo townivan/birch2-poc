@@ -1,5 +1,20 @@
+.mainFrameWrapper {
+  /* width: 100%; */
+  overflow: hidden; /* Hides the 3rd column */
+  /* border: 2px solid #333; */
+}
 .mainFrame {
-    display: flex;
-    min-height: 100svh;
-    position: relative;
+  min-height: 100svh;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 300px minmax(0, calc(100% - 900px)) minmax(0, 600px);
+  width: calc(100% + 600px);
+  transition:
+    transform 0.5s ease-in-out,
+    grid-template-columns 0.5s ease-in-out;
+}
+.shiftedLeftTransformation {
+  grid-template-columns: 300px minmax(0, 300px) minmax(0, calc(100% - 900px));
+  transform: translateX(-300px);
 }
