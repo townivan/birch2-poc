@@ -31,8 +31,8 @@ interface Blueprint {
 
 export const BLUEPRINTS: Record<string, Blueprint> = {
   TEST1: {
-    name: "Test1 Blueprint",
-    template: `<div style="background: {{bg}};"><h1 style="margin:0;">{{title}}</h1></div>`,
+    name: "Blueprint 100",
+    template: `<div style="background: {{bg}};"><h1 style="margin:0;line-height: 1;">{{title}}</h1></div>`,
     defaultData: { title: "Test1", bg: "lightgreen" },
     theme: "unum",
     controls: [
@@ -41,8 +41,8 @@ export const BLUEPRINTS: Record<string, Blueprint> = {
     ],
   },
   TEST2: {
-    name: "Test2 Blueprint",
-    template: `<div style="background: {{bg}};"><h1>{{title}}</h1></div>`,
+    name: "Blueprint 120",
+    template: `<div style="background: {{bg}};"><h1 style="margin:0;line-height: 1;">{{title}}</h1></div>`,
     defaultData: { title: "Test2", bg: "tan" },
     theme: "unum",
     controls: [
@@ -51,7 +51,7 @@ export const BLUEPRINTS: Record<string, Blueprint> = {
     ],
   },
   THIN: {
-    name: "Thin Blueprint",
+    name: "Blueprint 140",
     template: `<div style="background: {{bg}}; height: 1px"></h1></div>`,
     defaultData: { title: "Test2", bg: "darkblue" },
     theme: "unum",
@@ -59,8 +59,8 @@ export const BLUEPRINTS: Record<string, Blueprint> = {
     controls: [{ label: "Background Color", key: "bg", type: "color" }],
   },
   HEADER: {
-    name: "Simple Header",
-    template: `<div style="background: {{bg}};"><h1>{{title}}</h1></div>`,
+    name: "Blueprint 150",
+    template: `<div style="background: {{bg}};"><h1 style="margin:0;line-height: 1;">{{title}}</h1></div>`,
     defaultData: { title: "New Email", bg: "#ffffff" },
     theme: "unum",
     controls: [
@@ -69,7 +69,7 @@ export const BLUEPRINTS: Record<string, Blueprint> = {
     ],
   },
   IMAGE_TEXT: {
-    name: "Image + Caption",
+    name: "Blueprint 160",
     template: `<div><img src="{{url}}" /><p>{{caption}}</p></div>`,
     defaultData: {
       url: "https://placehold.co/600x400",
