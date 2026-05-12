@@ -1,9 +1,8 @@
 .card {
   position: relative;
   /* Essential: contains the stretched button */
-  border: 1px solid #ddd;
-  padding: 20px;
-  transition: transform 0.2s;
+  padding: 6px 0;
+  /* transition: transform 0.2s; */
 
   &:hover {
     outline: 2px green solid;
@@ -13,9 +12,19 @@
 
 .card:hover {
   background-color: #f9f9f9;
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainAction {
+  text-align: left;
+  background-color: transparent;
+  border: none;
+}
 .mainAction::after {
   content: "";
   position: absolute;
