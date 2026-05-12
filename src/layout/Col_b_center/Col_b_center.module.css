@@ -1,6 +1,7 @@
 .colCenter {
-  flex: 2;
+  /* width: clamp(600px, 100%, 100%); */
   background-color: rgb(223, 246, 246);
+  overflow-x: hidden;
 }
 
 .canvas {
@@ -15,7 +16,7 @@
     transition: padding 0.3s ease;
   }
 
-  &:hover>div[data-thin] div[data-shadowbox] {
+  &:hover > div[data-thin] div[data-shadowbox] {
     padding: 10px 0;
   }
 }
