@@ -4,24 +4,34 @@ import { BLUEPRINTS } from "../../blueprints";
 import { hydrateTemplate } from "../../utils/template";
 
 type ComponentAddButtonProps = {
-    blueprintId: string;
-    onAddInstance: (blueprintId: string) => void;
+  blueprintId: string;
+  onAddInstance: (blueprintId: string) => void;
 };
 
-const ComponentAddButton = ({ blueprintId, onAddInstance }: ComponentAddButtonProps) => {
-    const blueprint = BLUEPRINTS[blueprintId];
-    if (!blueprint) return null; // Handle cases where blueprintId might not exist
+const ComponentAddButton = ({
+  blueprintId,
+  onAddInstance,
+}: ComponentAddButtonProps) => {
+  const blueprint = BLUEPRINTS[blueprintId];
+  if (!blueprint) return null; // Handle cases where blueprintId might not exist
 
-    return (
-        <article className={styles.card}>
-            <div className="card-content">
-                <BlueprintPreview html={hydrateTemplate(blueprint.template, blueprint.defaultData)} isSelectable={false} />
-
-                <button type="button" className={styles.mainAction} onClick={() => onAddInstance(blueprintId)}>
-                    Add {blueprint.name}
-                </button>
-            </div>
-        </article>
-    );
+  return (
+    <article className={styles.card}>
+      <div className={styles.cardContent}>
+        <button
+          type="button"
+          className={styles.mainAction}
+          onClick={() => onAddInstance(blueprintId)}
+        >
+          Add {blueprint.name}
+        </button>
+        <BlueprintPreview
+          html={hydrateTemplate(blueprint.template, blueprint.defaultData)}
+          isSelectable={false}
+          shadowZoom={0.49}
+        />
+      </div>
+    </article>
+  );
 };
 export default ComponentAddButton;
