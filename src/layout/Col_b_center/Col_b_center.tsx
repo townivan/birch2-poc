@@ -5,21 +5,35 @@ import { hydrateTemplate } from "../../utils/template";
 import BlueprintPreview from "../../components/BlueprintPreview/BlueprintPreview";
 
 const Col_b_center = () => {
-    const instances = useEmailStore((state) => state.instances);
-    const toggleEditPanel = useEmailStore((state) => state.toggleEditPanel);
+  const instances = useEmailStore((state) => state.instances);
+  const isEditPanelOpen = useEmailStore((state) => state.isEditPanelOpen);
+  const toggleEditPanel = useEmailStore((state) => state.toggleEditPanel);
 
-    return (
-        <div className={styles.colCenter}>
-            <div className={styles.canvas}>
-                {instances.map((instance) => {
-                    const blueprint = Object.entries(BLUEPRINTS).find(([id]) => id === instance.blueprintId)?.[1];
-                    if (!blueprint) return null;
-                    const hydratedHtml = hydrateTemplate(blueprint.template, instance.data);
-                    return <BlueprintPreview key={instance.id} html={hydratedHtml} isThin={instance.isThin} onSelect={toggleEditPanel} />;
-                })}
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.colCenter}>
+      <div className={styles.canvas}>
+        {instances.map((instance) => {
+          const blueprint = Object.entries(BLUEPRINTS).find(
+            ([id]) => id === instance.blueprintId,
+          )?.[1];
+          if (!blueprint) return null;
+          const hydratedHtml = hydrateTemplate(
+            blueprint.template,
+            instance.data,
+          );
+          return (
+            <BlueprintPreview
+              key={instance.id}
+              html={hydratedHtml}
+              isThin={instance.isThin}
+              isEditModeActive={isEditPanelOpen}
+              onSelect={toggleEditPanel}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default Col_b_center;
